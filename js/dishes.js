@@ -14,10 +14,23 @@
 //   // вывести результат
 //   alert( xhr.responseText ); // responseText -- текст ответа.
 // }
-var myRequest = new Request("../data.json");
-var myMode = myRequest.mode;
+// var myRequest = new Request("../data.json");
+// var myMode = myRequest.mode;
 
-fetch(myRequest)
-.then(function(response){
-    alert(response.json());
-})
+// fetch(myRequest)
+// .then(function(response){
+//     alert(response.json());
+// })
+
+var xmlhttp = new XMLHttpRequest();
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    console.log("Json parsed data is: " + JSON.stringify(myObj));
+   }
+};
+xmlhttp.open("GET", "../data.json", true);
+xmlhttp.setRequestHeader('Content-Type', 'aplication/json');
+xmlhttp.setRequestHeader('Access-Control-Allow-Origin', );
+xmlhttp.send();
