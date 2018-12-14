@@ -1,0 +1,113 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    padding: 10px;
+    background-color: black;
+    margin: 0;
+}
+
+/* MENU */
+.menu {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;  
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+.menu ul, .menu ol {
+  list-style: none;
+}    
+
+.menu > ul {
+    display: flex;
+    justify-content: center;
+}    
+.menu-item a {
+    display: block;
+    /* background: #ececed; */
+    padding: 15px 30px 15px 40px;
+    font-size: 14px;
+    /* color: #454547; */
+    color: white;
+    text-decoration: none;
+    text-transform:uppercase;
+}
+
+.menu-item a:hover {
+    color: darkgreen;
+}
+
+.menu-item {
+    position: relative;
+}   
+
+/* SUB MENU */
+.sub-menu {
+    position: absolute;
+    min-width: 150px;
+    display: none;
+    z-index: 1;
+}   
+
+.sub-menu li a {
+    padding: 10px;
+    text-transform: none;
+    /* background: #e4e4e5; */
+    background: black;
+}   
+
+.sub-menu li a:hover {
+    color: darkgreen;
+}
+
+.menu-item:hover > .sub-menu {
+    display: block;
+}
+
+/* SLIDER */
+
+.slider {
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+}
+
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.leftArrow {
+    float: left;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+.rightArrow {
+    float: right;
+    cursor: pointer;
+}
+
+/* CONTENT */
+
+.content {
+    display: flex;
+}
+
+.dish {
+    border: 1px solid black;
+}
