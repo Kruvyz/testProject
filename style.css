@@ -31,13 +31,19 @@ ul {
 }    
 .menu-item a {
     display: block;
-    /* background: #ececed; */
     padding: 15px 30px 15px 40px;
     font-size: 14px;
-    /* color: #454547; */
     color: white;
     text-decoration: none;
     text-transform:uppercase;
+}
+
+.menu-item > a {    
+    border-right: 1px solid white;
+}
+
+.menu > ul > li:last-child > a {
+    border-right: 0;
 }
 
 .menu-item a:hover {
@@ -45,8 +51,13 @@ ul {
 }
 
 .menu-item {
-    position: relative;
+    position: relative;    
 }   
+
+
+.menu:last-child {
+    border-right-color: black;
+}
 
 /* SUB MENU */
 .sub-menu {
@@ -56,14 +67,13 @@ ul {
     z-index: 1;
 }   
 
-.sub-menu li a {
+.sub-menu-item a {
     padding: 10px;
     text-transform: none;
-    /* background: #e4e4e5; */
     background: black;
 }   
 
-.sub-menu li a:hover {
+.sub-menu-item a:hover {
     color: darkgreen;
 }
 
@@ -104,10 +114,52 @@ ul {
 
 /* CONTENT */
 
-.content {
+#content {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .dish {
     border: 1px solid black;
+    width: 15%;
+    margin: 10px;
+    padding: 5px;
+    background-color: lightgray;
+    display: none;
+}
+
+.dish-icon {
+    width: 100%;
+}
+
+/* CONTACT */
+
+.contact-content {
+    margin: auto;
+    width: 50%;
+}
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+/* PAGINATION */
+
+.pagination-active {
+    color: darkgreen;
+    background-color: lightgray;
+}
+
+.paginator {
+    width: min-content;
+    margin: auto;
+}
+
+.paginator span {
+    margin: 5px;
+    padding: 5px;
+}
+
+.paginator span:hover {
+    cursor: pointer;
 }
