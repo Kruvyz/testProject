@@ -17,7 +17,7 @@ for (var i = 0; i < dishes.length; i++) {
 }
 
 var mainPage = document.getElementById("page1");
-mainPage.classList.add("pagination-active")
+mainPage.classList.add("pagination-active");
 
 function pagination(event) {
     var target = event.target;

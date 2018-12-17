@@ -10,11 +10,24 @@ body {
     margin: 0;
 }
 
+.top-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    z-index: 4;
+    background-color: black;
+}
+
 /* MENU */
 .menu {
+    display: block;
     margin: 0;
-    margin-bottom: 10px;
-    padding: 0;  
+    padding: 0;
 }
 
 ul {
@@ -86,7 +99,8 @@ ul {
 .slider {
   width: 50%;
   margin: auto;
-  position: relative;
+  position: relative;  
+  margin-top: 60px;  
 }
 
 .mySlides {
@@ -117,6 +131,7 @@ ul {
 #content {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 60px;
 }
 
 .dish {
@@ -124,12 +139,20 @@ ul {
     width: 15%;
     margin: 10px;
     padding: 5px;
+    padding-bottom: 20px;
     background-color: lightgray;
     display: none;
+    position: relative;
 }
 
 .dish-icon {
     width: 100%;
+}
+
+.add-btn {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
 }
 
 /* CONTACT */
@@ -137,6 +160,7 @@ ul {
 .contact-content {
     margin: auto;
     width: 50%;
+    margin-top: 60px;
 }
 #map {
     width: 100%;
@@ -158,8 +182,52 @@ ul {
 .paginator span {
     margin: 5px;
     padding: 5px;
+    cursor: pointer;
 }
 
-.paginator span:hover {
-    cursor: pointer;
+/* BASKET */
+
+#basket-div {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightgray;
+    min-width: 300px;
+    min-height: 300px;
+    z-index: 100;
+}
+
+.basket-header {
+    padding: 5px;
+    border-bottom: 1px dotted black;
+}
+
+.basket-content {
+    padding: 5px;
+}
+
+.close-btn {
+    background-color: transparent;
+    float: right;
+}
+
+.plus-btn {
+    margin-right: 5px;
+}
+
+.minus-btn {
+    margin-left: 5px;
+}
+
+.basket-elem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.basket-elem > * {
+    flex: 1;
+    text-align: center;
 }
