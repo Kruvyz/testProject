@@ -1,23 +1,29 @@
 document.getElementsByClassName("paginator")[0].addEventListener("click", pagination)
+createNavPagination();
 
-var dishes = document.getElementsByClassName("dish");
-var count = 2;
-var countPage = Math.ceil(dishes.length / count);
+function createNavPagination() {
+    var dishes = document.getElementsByClassName("dish");
+    var count = 10;
+    var countPage = Math.ceil(dishes.length / count);
 
-var paginator = document.querySelector(".paginator");
-var page = "";
-for (var i = 0; i < countPage; i++) {
-  page += "<span data-page=" + i + "  id=\"page" + (i + 1) + "\">" + (i + 1) + "</span>";
+    if (!dishes.length) return;
+ 
+    var paginator = document.querySelector(".paginator");
+    var page = "";
+
+    for (var i = 0; i < countPage; i++) {
+    page += "<span data-page=" + i + "  id=\"page" + (i + 1) + "\">" + (i + 1) + "</span>";
+    }
+    paginator.innerHTML = page;
+
+    for (var i = 0; i < dishes.length; i++) {
+        if (i < count)
+            dishes[i].style.display = "block";
+    }
+
+    var mainPage = document.getElementById("page1");
+    mainPage.classList.add("pagination-active");
 }
-paginator.innerHTML = page;
-
-for (var i = 0; i < dishes.length; i++) {
-    if (i < count)
-        dishes[i].style.display = "block";
-}
-
-var mainPage = document.getElementById("page1");
-mainPage.classList.add("pagination-active");
 
 function pagination(event) {
     var target = event.target;

@@ -1,42 +1,21 @@
-var data = JSON.parse(`[
-    {
-        "name": "Капрезе",
-        "ingredients": "сир моцарела, помідори, базилік, оливковa олія",
-        "weight": "150г",
-        "price": 76,
-        "imgUrl": "../images/caprese.jpg",
-        "category": "італійська, салат"
-    },
-    {
-        "name": "Тірамісу",
-        "ingredients": "сир маскарпоне, цукор, яйця, печево савоярді, заварна кава, ром, какао порошок",
-        "weight": "220г",
-        "price": 70,
-        "imgUrl": "../images/tiramisu.jpg",
-        "category": "італійська, десерт"
-    },
-    {
-        "name": "Піца гавайська",
-        "ingredients": "сир моцарелла, тісто, відварена курка, консервовані ананаси, італійські трави",
-        "weight": "710г",
-        "price": 134,
-        "imgUrl": "../images/hawaiian.jpg",
-        "category": "італійська, піца"
-    }
-]`);
-
-document.getElementById("content").addEventListener("click", addDish);
+document.getElementById("dishes-content").addEventListener("click", addDish);
+document.getElementsByClassName("filter")[0].addEventListener("click", changeFilter);
 
 var basketElement = getData("basketElement") || [];
-var filter = decodeURI(document.URL).split("filter=")[1];
+printDishes();
+checkedCheckbox();
 
-for (var i in data) {
-    if (data[i].category.indexOf(filter) >= 0)
-        createDish(data[i], i);
+function printDishes() {
+    var filter = parseUrl(decodeURI(document.URL));
+
+    for (var i in data) {
+        if (dishFiltration(data[i], filter))
+            createDish(data[i], i);
+    }
 }
 
 function createDish(dish, id) {
-    var content = document.getElementById("content");
+    var content = document.getElementById("dishes-content");
     var divDish = document.createElement("div");
     var image = document.createElement("img");
     var name = document.createElement("h3");
@@ -98,4 +77,73 @@ function indexDishInBasket(dish) {
     }
 
     return -1;
+}
+
+function parseUrl(url) {
+    return url.split("?")[1];
+}
+
+function dishFiltration(dish, filter) {
+    filter = filter.split("&");
+
+    for (var j in filter) {
+        filter[j] = filter[j].split("=");
+        var prop = filter[j][0];
+        var values = filter[j][1].split(",");   
+
+        for(var i in values) {
+            if (dish[prop].toLowerCase().indexOf(values[i].toLowerCase()) === -1) return false;
+        }
+    }    
+
+    return true;
+}
+
+function changeFilter(event) {
+    var target = event.target;
+    var attribute = "category";
+
+    if (target.tagName !== "INPUT") return;
+
+    if (target.checked) addFilter(target.value, attribute);
+    else deleteFilter(target.value);    
+}
+
+function addFilter(filter, attribute) {
+    var url  = decodeURI(document.URL);
+    var index = url.indexOf(attribute);
+
+    if (index === -1) {
+        url += "&" + attribute + "=" + filter;
+    } else {
+        url = url.slice(0, index + attribute.length + 1) + filter + ","
+            + url.slice(index + attribute.length + 1, url.length);
+    }
+
+    window.location = url;
+}
+
+function deleteFilter(filter) {
+    var url  = decodeURI(document.URL);
+
+    if (url.indexOf(filter + ",") >= 0) {
+        url = url.replace(filter + ",", "");
+    } else if (url.indexOf("," + filter) >= 0) {
+        url = url.replace("," + filter, "");
+    } else {
+        url = url.replace(filter, "");
+    }       
+
+    window.location = url;
+}
+
+function checkedCheckbox() {
+    var filter = parseUrl(decodeURI(document.URL));
+    var checkboxes = document.querySelectorAll(".filter input");
+
+    for (var i in checkboxes) {
+        if (filter.indexOf(checkboxes[i].value) >= 0) {
+            checkboxes[i].checked = true;
+        }
+    }
 }

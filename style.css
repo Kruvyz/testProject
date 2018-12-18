@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+.content {
+    margin-top: 60px;
+}
+
 /* HEADER */
 .header {
     padding: 10px;
@@ -126,17 +130,18 @@ ul {
     cursor: pointer;
 }
 
-/* CONTENT */
+/* DISHES */
 
-#content {
+#dishes-content {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 60px;
+    
+    padding: 10px 9%;
 }
 
 .dish {
     border: 1px solid black;
-    width: 15%;
+    width: 10em;
     margin: 10px;
     padding: 5px;
     padding-bottom: 20px;
@@ -147,6 +152,7 @@ ul {
 
 .dish-icon {
     width: 100%;
+    height: 7em;
 }
 
 .add-btn {
@@ -160,7 +166,7 @@ ul {
 .contact-content {
     margin: auto;
     width: 50%;
-    margin-top: 60px;
+    
 }
 #map {
     width: 100%;
@@ -175,8 +181,9 @@ ul {
 }
 
 .paginator {
-    width: min-content;
+    width: 30%;
     margin: auto;
+    text-align: center;
 }
 
 .paginator span {
@@ -193,10 +200,10 @@ ul {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: lightgray;
-    min-width: 300px;
-    min-height: 300px;
+    background-color: lightseagreen;
+    min-width: 500px;
     z-index: 100;
+    border: 1px solid black;
 }
 
 .basket-header {
@@ -210,6 +217,7 @@ ul {
 
 .close-btn {
     background-color: transparent;
+    border-color: transparent;
     float: right;
 }
 
@@ -230,4 +238,26 @@ ul {
 .basket-elem > * {
     flex: 1;
     text-align: center;
+}
+
+/* GALERY */
+
+#galery-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 10px;
+    
+}
+
+.galery-img {
+    width: 300px;
+    margin: 10px;
+}
+
+/* FILTER */
+.filter {
+    float: left;
+    padding: 10px;
 }

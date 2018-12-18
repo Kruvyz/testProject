@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style.css">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
     <header class="header">
@@ -17,32 +16,31 @@
                     <li class="menu-item">
                         <a href="#">Дні</a>
                         <ul class="sub-menu">
-                            <li class="sub-menu-item"><a href="dishes.html?filter=понеділок">Понеділок</a></li>
-                            <li class="sub-menu-item"><a href="dishes.html?filter=вівторок">Вівторок</a></li>
-                            <li class="sub-menu-item"><a href="dishes.html?filter=середа">Середа</a></li>
-                            <li class="sub-menu-item"><a href="dishes.html?filter=четверг">Четверг</a></li>
-                            <li class="sub-menu-item"><a href="dishes.html?filter=п'ятниця">П'ятниця</a></li>
-                            <li class="sub-menu-item"><a href="dishes.html?filter=субота">Субота</a></li>
-                            <li class="sub-menu-item"><a href="dishes.html?filter=неділя">Неділя</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=понеділок">Понеділок</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=вівторок">Вівторок</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=середа">Середа</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=четверг">Четверг</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=п'ятниця">П'ятниця</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=субота">Субота</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=неділя">Неділя</a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
                         <a href="#">Кухні</a>
                         <ul class="sub-menu">
-                                <li class="sub-menu-item"><a href="dishes.html?filter=французька">Французька</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=італійська">Італійська</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=українська">Українська</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=японська">Японська</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=французька">Французька</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=італійська">Італійська</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=українська">Українська</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=японська">Японська</a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
                         <a href="#">Страви</a>
                         <ul class="sub-menu">
-                                <li class="sub-menu-item"><a href="dishes.html?filter=салат">Салати</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=суп">Супи</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=десерт">Десерти</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=напій">Напої</a></li>
-                                <li class="sub-menu-item"><a href="dishes.html?filter=піца">Піца</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=салат">Салати</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=гарячі_страви">Гарячі страви</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=десерт">Десерти</a></li>
+                            <li class="sub-menu-item"><a href="dishes.html?category=піца">Піца</a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -53,24 +51,64 @@
                     </li>
                 </ul>
             </nav> 
+            <div class="search">                
+                    <input type="text" id="search-input">
+                    <button id="search-btn">Пошук</button>
+            </div>
             <img src="../images/basket.png" alt="basket" id="basket">
         </div>        
     </header>
 
-    <div id="content"></div>
-    <div class="paginator"></div>
+    <div class="content">
+        <div class="filter">
+            <input type="checkbox" value="понеділок" id="checkbox1">
+            <label for="checkbox1">Понеділок</label><br>
+            <input type="checkbox" value="вівторок" id="checkbox2">
+            <label for="checkbox2">Вівторок</label><br>
+            <input type="checkbox" value="середа" id="checkbox3">
+            <label for="checkbox3">Середа</label><br>
+            <input type="checkbox" value="четверг" id="checkbox4">
+            <label for="checkbox4">Четверг</label><br>
+            <input type="checkbox" value="п'ятниця" id="checkbox5">
+            <label for="checkbox5">П'ятниця</label><br>
+            <input type="checkbox" value="субота" id="checkbox6">
+            <label for="checkbox6">Субота</label><br>
+            <input type="checkbox" value="неділя" id="checkbox7">
+            <label for="checkbox7">Неділя</label><br>
+            <input type="checkbox" value="італійська" id="checkbox8">
+            <label for="checkbox8">Італійська</label><br>
+            <input type="checkbox" value="українська" id="checkbox9">
+            <label for="checkbox9">Українська</label><br>
+            <input type="checkbox" value="французька" id="checkbox10">
+            <label for="checkbox10">Французька</label><br>
+            <input type="checkbox" value="японська" id="checkbox11">
+            <label for="checkbox11">Японська</label><br>
+            <input type="checkbox" value="салат" id="checkbox12">
+            <label for="checkbox12">Салати</label><br>
+            <input type="checkbox" value="гарячі_страви" id="checkbox13">
+            <label for="checkbox13">Гарячі страви</label><br>
+            <input type="checkbox" value="десерт" id="checkbox14">
+            <label for="checkbox14">Десерти</label><br>
+            <input type="checkbox" value="піца" id="checkbox15">
+            <label for="checkbox15">Піца</label><br>
+        </div>
+        <div id="dishes-content"></div>
+        <div class="paginator"></div>
 
-    <div id="basket-div">
-            <div class="basket-header">
-                <span>Корзина</span>
-                <button class="close-btn">x</button>
-            </div>
-            <div class="basket-content"></div>
+        <div id="basket-div">
+                <div class="basket-header">
+                    <span>Корзина</span>
+                    <button class="close-btn">x</button>
+                </div>
+                <div class="basket-content"></div>
+        </div>
     </div>
 
     <script src="../js/localStorage.js"></script>
+    <script src="../js/data.js"></script>
     <script src="../js/dishes.js"></script>
     <script src="../js/paginator.js"></script>
     <script src="../js/basket.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>
