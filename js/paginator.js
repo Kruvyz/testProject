@@ -1,10 +1,12 @@
 document.getElementsByClassName("paginator")[0].addEventListener("click", pagination)
 createNavPagination();
 
+var dishes, count, countPage, mainPage;
+
 function createNavPagination() {
-    var dishes = document.getElementsByClassName("dish");
-    var count = 10;
-    var countPage = Math.ceil(dishes.length / count);
+    dishes = document.getElementsByClassName("dish");
+    count = 10;
+    countPage = Math.ceil(dishes.length / count);
 
     if (!dishes.length) return;
  
@@ -21,7 +23,7 @@ function createNavPagination() {
             dishes[i].style.display = "block";
     }
 
-    var mainPage = document.getElementById("page1");
+    mainPage = document.getElementById("page1");
     mainPage.classList.add("pagination-active");
 }
 

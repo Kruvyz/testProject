@@ -57,7 +57,8 @@ function changeCount(event) {
 
     if (target.className.indexOf("plus-btn") >= 0) {
         basketElement[+target.dataset.id].count++;       
-    } else if (target.className.indexOf("minus-btn") >= 0) {
+    } else if (target.className.indexOf("minus-btn") >= 0
+        && basketElement[+target.dataset.id].count > 0) {
         basketElement[+target.dataset.id].count--;
     } else if (target.className.indexOf("delete-btn") >= 0) {
         basketElement.splice(+target.dataset.id, 1);
